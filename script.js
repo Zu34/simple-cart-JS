@@ -1,5 +1,4 @@
 
-
 const products = [
   { id: 1, name: "Product 1", price: 10.0, img: "imgs/img1.jpg" },
   { id: 2, name: "Product 2", price: 15.5, img: "imgs/img2.jpg" },
@@ -70,7 +69,7 @@ const showNotification = (message) => {
   notification.style.bottom = "20px";
   notification.style.right = "20px";
   notification.style.borderRadius = "8px";
-  notification.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+  notification.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.5)";
   notification.style.zIndex = "1000";
 
   document.body.appendChild(notification);
