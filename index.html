@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #333;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product-details {
+      margin: 15px 0;
+    }
+
+    .product-name {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      color: #28a745;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .add-to-cart {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .add-to-cart:hover {
+      background-color: #0056b3;
+    }
+
+    /* Cart Icon */
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #333;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .cart-icon span {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Cart Modal */
+    .cart-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      width: 300px;
+    }
+
+    .cart-modal.open {
+      display: block;
+    }
+
+    .cart-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .cart-overlay.open {
+      display: block;
+    }
+
+    .close-cart {
+      margin-top: 10px;
+      color: white;
+      background-color: #333;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+
+  <!-- Product Cards -->
+  <div class="products" id="products"></div>
+
+  <!-- Cart Icon -->
+  <div class="cart-icon" onclick="toggleCartModal()">
+    🛒
+    <span id="cart-count">0</span>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-modal" id="cart-modal">
+    <h2>Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total-price">Total Price: $0.00</p>
+    <button class="close-cart" onclick="toggleCartModal()">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
